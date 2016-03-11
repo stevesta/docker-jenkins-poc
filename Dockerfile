@@ -1,33 +1,35 @@
 FROM jenkins
 MAINTAINER Stephan Stachurski "ses1984@gmail.com"
 
-RUN mkdir -p /var/jenkins_home/plugins/
-
 # workflow
-ADD http://mirrors.jenkins-ci.org/plugins/workflow-aggregator/latest/workflow-aggregator.hpi /var/jenkins_home/plugins/
-ADD http://mirrors.jenkins-ci.org/plugins/workflow-api/latest/workflow-api.hpi /var/jenkins_home/plugins/
-ADD http://mirrors.jenkins-ci.org/plugins/workflow-basic-steps/latest/workflow-basic-steps.hpi /var/jenkins_home/plugins/
-ADD http://mirrors.jenkins-ci.org/plugins/workflow-cps-global-lib/latest/workflow-cps-global-lib.hpi /var/jenkins_home/plugins/
-ADD http://mirrors.jenkins-ci.org/plugins/workflow-cps/latest/workflow-cps.hpi /var/jenkins_home/plugins/
-ADD http://mirrors.jenkins-ci.org/plugins/workflow-durable-task-step/latest/workflow-durable-task-step.hpi /var/jenkins_home/plugins/
-ADD http://mirrors.jenkins-ci.org/plugins/workflow-job/latest/workflow-job.hpi /var/jenkins_home/plugins/
-ADD http://mirrors.jenkins-ci.org/plugins/workflow-multibranch/latest/workflow-multibranch.hpi /var/jenkins_home/plugins/
-ADD http://mirrors.jenkins-ci.org/plugins/workflow-scm-step/latest/workflow-scm-step.hpi /var/jenkins_home/plugins/
-ADD http://mirrors.jenkins-ci.org/plugins/workflow-step-api/latest/workflow-step-api.hpi /var/jenkins_home/plugins/
-ADD http://mirrors.jenkins-ci.org/plugins/workflow-stm/latest/workflow-stm.hpi /var/jenkins_home/plugins/
-ADD http://mirrors.jenkins-ci.org/plugins/workflow-support/latest/workflow-support.hpi /var/jenkins_home/plugins/
-ADD http://mirrors.jenkins-ci.org/plugins/workflow-remote-loader/latest/workflow-remote-loader.hpi /var/jenkins_home/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/workflow-aggregator/latest/workflow-aggregator.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/workflow-api/latest/workflow-api.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/workflow-basic-steps/latest/workflow-basic-steps.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/workflow-cps-global-lib/latest/workflow-cps-global-lib.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/workflow-cps/latest/workflow-cps.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/workflow-durable-task-step/latest/workflow-durable-task-step.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/workflow-job/latest/workflow-job.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/workflow-multibranch/latest/workflow-multibranch.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/workflow-scm-step/latest/workflow-scm-step.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/workflow-step-api/latest/workflow-step-api.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/workflow-stm/latest/workflow-stm.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/workflow-support/latest/workflow-support.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/workflow-remote-loader/latest/workflow-remote-loader.hpi /usr/share/jenkins/ref/plugins/
 
 # mesos
-ADD http://mirrors.jenkins-ci.org/plugins/mesos/latest/mesos.hpi /var/jenkins_home/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/mesos/latest/mesos.hpi /usr/share/jenkins/ref/plugins/
 
 # docker
-ADD http://updates.jenkins-ci.org/latest/docker-plugin.hpi /var/jenkins_home/plugins/
-ADD http://updates.jenkins-ci.org/latest/token-macro.hpi /var/jenkins_home/plugins/
-ADD http://updates.jenkins-ci.org/latest/ssh-slaves.hpi /var/jenkins_home/plugins/
-ADD http://updates.jenkins-ci.org/latest/credentials.hpi /var/jenkins_home/plugins/
-ADD http://updates.jenkins-ci.org/latest/icon-shim.hpi /var/jenkins_home/plugins/
-ADD http://updates.jenkins-ci.org/latest/durable-task.hpi /var/jenkins_home/plugins/
-ADD http://updates.jenkins-ci.org/latest/docker-build-publish.hpi /var/jenkins_home/plugins/
-ADD http://updates.jenkins-ci.org/latest/docker-commons.hpi /var/jenkins_home/plugins/
-ADD http://updates.jenkins-ci.org/latest/authentication-tokens.hpi /var/jenkins_home/plugins/
+ADD http://updates.jenkins-ci.org/latest/docker-plugin.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/token-macro.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/ssh-slaves.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/credentials.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/icon-shim.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/durable-task.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/docker-build-publish.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/docker-commons.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/authentication-tokens.hpi /usr/share/jenkins/ref/plugins/
+
+USER root
+RUN chown -R jenkins:jenkins /usr/share/jenkins/ref/plugins/
+USER jenkins
