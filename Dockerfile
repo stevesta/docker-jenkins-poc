@@ -20,15 +20,25 @@ ADD http://mirrors.jenkins-ci.org/plugins/workflow-remote-loader/latest/workflow
 ADD http://mirrors.jenkins-ci.org/plugins/mesos/latest/mesos.hpi /usr/share/jenkins/ref/plugins/
 
 # docker
-ADD http://updates.jenkins-ci.org/latest/docker-plugin.hpi /usr/share/jenkins/ref/plugins/
-ADD http://updates.jenkins-ci.org/latest/token-macro.hpi /usr/share/jenkins/ref/plugins/
-ADD http://updates.jenkins-ci.org/latest/ssh-slaves.hpi /usr/share/jenkins/ref/plugins/
-ADD http://updates.jenkins-ci.org/latest/credentials.hpi /usr/share/jenkins/ref/plugins/
-ADD http://updates.jenkins-ci.org/latest/icon-shim.hpi /usr/share/jenkins/ref/plugins/
-ADD http://updates.jenkins-ci.org/latest/durable-task.hpi /usr/share/jenkins/ref/plugins/
-ADD http://updates.jenkins-ci.org/latest/docker-build-publish.hpi /usr/share/jenkins/ref/plugins/
-ADD http://updates.jenkins-ci.org/latest/docker-commons.hpi /usr/share/jenkins/ref/plugins/
-ADD http://updates.jenkins-ci.org/latest/authentication-tokens.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/docker-plugin/latest/docker-plugin.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/docker-build-publish/latest/docker-build-publish.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/docker-commons/latest/docker-commons.hpi /usr/share/jenkins/ref/plugins/
+
+# dependencies
+ADD http://mirrors.jenkins-ci.org/plugins/token-macro/latest/token-macro.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/ssh-slaves/latest/ssh-slaves.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/credentials/latest/credentials.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/icon-shim/latest/icon-shim.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/durable-task/latest/durable-task.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/authentication-tokens/latest/authentication-tokens.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/ace-editor/latest/ace-editor.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/branch-api/latest/branch-api.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/cloudbees-folder/latest/cloudbees-folder.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/git/latest/git.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/git-client/latest/git-client.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/git-server/latest/git-server.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/jquery-detached/latest/jquery-detached.hpi /usr/share/jenkins/ref/plugins/
+ADD http://mirrors.jenkins-ci.org/plugins/scm-api/latest/scm-api.hpi /usr/share/jenkins/ref/plugins/
 
 USER root
 RUN chown -R jenkins:jenkins /usr/share/jenkins/ref/plugins/
