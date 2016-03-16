@@ -60,4 +60,5 @@ ADD http://updates.jenkins-ci.org/latest/parameterized-trigger.hpi /usr/share/je
 
 USER root
 RUN chown -R jenkins:jenkins /usr/share/jenkins/ref/plugins/
+RUN chmod -R 777 /usr/share/jenkins/ref/plugins/
 USER jenkins
