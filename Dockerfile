@@ -1,6 +1,11 @@
 FROM jenkins
 MAINTAINER Stephan Stachurski "ses1984@gmail.com"
 
+RUN mkdir -p /usr/share/jenkins/ref/plugins/
+
+# git
+ADD http://updates.jenkins-ci.org/latest/git.hpi /usr/share/jenkins/ref/plugins/
+
 # workflow
 ADD http://mirrors.jenkins-ci.org/plugins/workflow-aggregator/latest/workflow-aggregator.hpi /usr/share/jenkins/ref/plugins/
 ADD http://mirrors.jenkins-ci.org/plugins/workflow-api/latest/workflow-api.hpi /usr/share/jenkins/ref/plugins/
@@ -39,6 +44,19 @@ ADD http://mirrors.jenkins-ci.org/plugins/git-client/latest/git-client.hpi /usr/
 ADD http://mirrors.jenkins-ci.org/plugins/git-server/latest/git-server.hpi /usr/share/jenkins/ref/plugins/
 ADD http://mirrors.jenkins-ci.org/plugins/jquery-detached/latest/jquery-detached.hpi /usr/share/jenkins/ref/plugins/
 ADD http://mirrors.jenkins-ci.org/plugins/scm-api/latest/scm-api.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/ssh-credentials.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/mailer.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/promoted-builds.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/rebuild.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/project-inheritance.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/maven-plugin.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/javadoc.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/junit.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/matrix-project.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/script-security.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/conditional-buildstep.hpi /usr/share/jenkins/ref/plugins/
+ADD http://updates.jenkins-ci.org/latest/parameterized-trigger.hpi /usr/share/jenkins/ref/plugins/
+
 
 USER root
 RUN chown -R jenkins:jenkins /usr/share/jenkins/ref/plugins/
