@@ -1,6 +1,11 @@
 FROM jenkins
 MAINTAINER Stephan Stachurski "ses1984@gmail.com"
 
+USER root
+
+ADD https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 /usr/bin/jq
+RUN chmod +x /usr/bin/jq
+
 RUN mkdir -p /usr/share/jenkins/ref/plugins/
 
 # git
@@ -57,8 +62,5 @@ ADD http://updates.jenkins-ci.org/latest/script-security.hpi /usr/share/jenkins/
 ADD http://updates.jenkins-ci.org/latest/conditional-buildstep.hpi /usr/share/jenkins/ref/plugins/
 ADD http://updates.jenkins-ci.org/latest/parameterized-trigger.hpi /usr/share/jenkins/ref/plugins/
 
-
-USER root
-RUN apt-get install jq
 RUN chown -R jenkins:jenkins /usr/share/jenkins/ref/plugins/
 RUN chmod -R 777 /usr/share/jenkins/ref/plugins/
